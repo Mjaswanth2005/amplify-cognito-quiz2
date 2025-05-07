@@ -5,9 +5,232 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #f0f2f5; /* Light grey background for the page */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.quiz {
+  background-color: white;
+  border-radius: 16px; /* More rounded corners */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Softer shadow */
+  padding: 30px 40px; /* Adjusted padding */
+  width: 100%;
+  max-width: 450px; /* Slightly narrower width */
+  box-sizing: border-box;
+  /* text-align: center; /* Remove center alignment for more control */
+  background-image: url('/image.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  z-index: 1;
+}
+
+.quiz > * {
+  position: relative;
+  z-index: 2;
+  /* Ensures content is above background */
+}
+
+.quiz::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255,255,255,0.85); /* Subtle overlay for readability */
+  z-index: 1;
+  border-radius: 16px;
+}
+
+.question-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px; /* Space below header */
+  color: #6c757d; /* Grey color */
+  font-size: 1rem;
+}
+
+.timer {
+  display: flex;
+  align-items: center;
+  gap: 5px; /* Space between icon and text */
+}
+
+.timer svg {
+  vertical-align: middle;
+}
+
+.question-section {
+  margin-bottom: 25px; /* Adjusted margin */
+}
+
+/* Remove empty ruleset */
+  /* Style moved to .question-header */
+  /* color: #6c757d; */
+  /* font-size: 1rem; */
+  /* margin-bottom: 15px; */
+
+.question-text {
+  font-size: 1.4rem; /* Slightly smaller font size */
+  font-weight: 600;
+  color: #212529;
+  margin-bottom: 25px; /* Adjusted space */
+  line-height: 1.4;
+  text-align: left; /* Align question text left */
+}
+
+.answer-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px; /* Adjusted space between options */
+  margin-bottom: 30px; /* Space before navigation buttons */
+}
+
+.option-container {
+  display: flex;
+  align-items: center;
+  border: 1px solid #dee2e6; /* Light grey border */
+  border-radius: 8px;
+  padding: 12px 15px; /* Adjusted padding */
+  cursor: pointer;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+  background-color: #fff;
+}
+
+.option-container:hover {
+  border-color: #adb5bd;
+}
+
+.option-letter {
+  width: 30px; /* Slightly smaller */
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid #adb5bd; /* Grey border for the circle */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 12px; /* Adjusted margin */
+  font-weight: 500;
+  color: #495057; /* Dark grey text color */
+  flex-shrink: 0;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.option-text {
+  font-size: 1rem;
+  color: #495057; /* Dark grey text color */
+  text-align: left;
+}
+
+.option-container.selected {
+  border-color: #0d6efd; /* Blue border for selected */
+  background-color: #e7f1ff; /* Light blue background for selected container */
+}
+
+.option-container.selected .option-letter {
+  background-color: #0d6efd; /* Blue background for selected letter */
+  color: white; /* White text for selected letter */
+  border-color: #0d6efd; /* Blue border for selected letter */
+}
+
+/* Keep text color consistent when selected, only background/border changes */
+/* .option-container.selected .option-text {
+  color: #0d6efd; 
+} */
+
+.navigation-buttons {
+  display: flex;
+  justify-content: space-between; /* Space out buttons */
+  align-items: center;
+  margin-top: 20px; /* Add margin if needed */
+}
+
+.nav-button {
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: 1px solid #adb5bd; /* Default border */
+  background-color: #fff; /* Default background */
+  color: #495057; /* Default text color */
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.nav-button:hover:not(:disabled) {
+  border-color: #6c757d;
+  background-color: #f8f9fa; /* Light hover */
+}
+
+.nav-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.submit-button {
+  background-color: #0d6efd; /* Blue background */
+  color: white; /* White text */
+  border-color: #0d6efd; /* Blue border */
+}
+
+.submit-button:hover:not(:disabled) {
+  background-color: #0b5ed7; /* Darker blue on hover */
+  border-color: #0a58ca;
+}
+
+.score-section {
+  font-size: 1.5rem;
+  text-align: center;
+  color: #212529;
+  padding: 6px 2px; /* Further reduced padding for score */
+  margin-bottom: 8px; /* Reduce space below score */
+}
+
+/* Remove potentially conflicting styles from previous implementation if any */
+.answer-section button, 
+.quiz .answer-section button,
+.feedback {
+  /* Ensure these old styles don't interfere if they existed */
+  /* display: none; */
+}
+
+.login-image, .quiz-image {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  display: block;
+  margin: 20px auto;
+}
+
+.correct-answers {
+  margin-top: 4px; /* Further reduce space above correct answers */
+  margin-bottom: 4px; /* Further reduce space below correct answers */
+  color: #212529;
+  font-size: 1rem;
+  text-align: left;
+}
+.Bar {
+  margin-bottom: 4px !important; /* Further reduce space below bar chart */
+}
+
+
+.correct-answers .correct {
+  background-color: #d4edda; /* Green background for correct answers */
+  color: #155724; /* Dark green text for correct answers */
+}
+
+.correct-answers .incorrect {
+  background-color: #f8d7da; /* Red background for incorrect answers */
+  color: #721c24; /* Dark red text for incorrect answers */
 }

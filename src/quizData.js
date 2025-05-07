@@ -1,10 +1,5 @@
 const quizData = [
     {
-      question: "What was the first video game ever made?",
-      options: ["Pong", "Spacewar!", "Tetris", "Computer Space"],
-      answer: "Spacewar!"
-    },
-    {
       question: "Which company developed the first commercial antivirus software?",
       options: ["Symantec", "McAfee", "Norton", "Kaspersky Lab"],
       answer: "McAfee"
@@ -25,19 +20,9 @@ const quizData = [
       answer: "HTML"
     },
     {
-      question: "What is the name of the world's first computer programmer?",
-      options: ["Charles Babbage", "Ada Lovelace", "Alan Turing", "Grace Hopper"],
-      answer: "Ada Lovelace"
-    },
-    {
       question: "In what year was the iPhone first introduced?",
       options: ["2005", "2007", "2009", "2011"],
       answer: "2007"
-    },
-    {
-      question: "What was Google's original name?",
-      options: ["BackRub", "Googol", "SearchMaster", "WebSearch"],
-      answer: "BackRub"
     },
     {
       question: "Which of these companies was not founded in a garage?",
@@ -56,7 +41,7 @@ const quizData = [
     },
     {
       question: "Who painted the Mona Lisa?",
-      options: ["Vincent Van Gogh", "Leonardo da Vinci", "Pablo Picasso", "Claude Monet"],
+      options: ["Sriharsha RP", "Leonardo da Vinci", "Jaswanth M", "Laddu"],
       answer: "Leonardo da Vinci"
     },
     {
